@@ -1,11 +1,15 @@
 import React from 'react';
-import Logo from '../components/logo/Logo';
+import Header from '../components/header/Header';
+import Footer from '../components/footer/Footer';
+import Browsing from '../components/browsing/Browsing';
 
 class Landing extends React.Component {
     render(){
         return (
             <div>
-                <Logo />
+                <Header />
+                <Browsing />
+                <Footer />
             </div>
         )
     }
