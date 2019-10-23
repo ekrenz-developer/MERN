@@ -1,16 +1,14 @@
 import React from 'react';
-import Header from '../components/header/Header';
-import Footer from '../components/footer/Footer';
 import Browsing from '../components/browsing/Browsing';
+import Session from '../components/session/Session';
 
 class Landing extends React.Component {
     render(){
         return (
-            <div>
-                <Header />
+            <section>
                 <Browsing />
-                <Footer />
-            </div>
+                <Session />
+            </section>             
         )
     }
 }
