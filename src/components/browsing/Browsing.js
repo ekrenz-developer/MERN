@@ -11,4 +11,4 @@ class Browsing extends React.Component {
     }
 }
 
-export default Browsing;
+export default Browsing; 
