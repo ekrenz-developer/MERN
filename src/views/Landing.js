@@ -8,7 +8,7 @@ class Landing extends React.Component {
             <section>
                 <Browsing />
                 <Session />
-            </section>             
+            </section>           
         )
     }
 }
