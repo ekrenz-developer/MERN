@@ -1,10 +1,11 @@
 import React from 'react';
+import './Footer.css';
 
 class Footer extends React.Component {
     render(){
         return (
-            <div>
-                <img src={require('../../assets/homeIcon.png')} alt="home"/>
+            <div className="footer-container">
+                <img src={require('../../assets/homeIcon.png')} alt="home" className="img-container"/>
             </div>
         )
     }

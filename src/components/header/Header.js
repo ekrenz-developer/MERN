@@ -8,7 +8,7 @@ import './Header.css';
 class Header extends React.Component {
     render(){
         return (
-            <div>
+            <div className="header-container">
                 <img src={require('../../assets/MYtineraryLogo.png')} className="logo" alt="logo" />
             </div>
         )

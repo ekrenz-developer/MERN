@@ -6,7 +6,7 @@ import Landing from './views/Landing';
 class App extends React.Component {
     render(){
         return (
-            <div>
+            <div className="container">
                 <Header />
                 <Landing />
                 <Footer />
