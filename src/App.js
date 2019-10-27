@@ -1,7 +1,7 @@
 import React from 'react';
 import Header from './components/header/Header';
 import Footer from './components/footer/Footer';
-import Landing from './views/Landing';
+import Landing from './views/landing/Landing';
 
 class App extends React.Component {
     render(){

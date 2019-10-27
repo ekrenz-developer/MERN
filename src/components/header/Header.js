@@ -9,7 +9,9 @@ class Header extends React.Component {
     render(){
         return (
             <div className="header-container">
-                <img src={require('../../assets/MYtineraryLogo.png')} className="logo" alt="logo" />
+                <div className="image-container">
+                    <img src={require('../../assets/MYtineraryLogo.png')} className="logo" alt="logo" />
+                </div>
             </div>
         )
     }
