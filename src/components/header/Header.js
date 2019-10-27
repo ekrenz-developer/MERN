@@ -1,14 +1,16 @@
 import React from 'react';
 import './Header.css';
-
-/*
-<p>Find your perfect trip, designed by insiders who know and love their cities.</p>
-*/
+import Link from 'react-router-dom'
 
 class Header extends React.Component {
     render(){
         return (
             <div className="header-container">
+                <nav className="nav-container navbar navbar-light fixed-top bg-light">
+                    <a className="navbar-brand" href="#">Fixed top</a>
+                </nav>
+                <hr/>
+                <hr/>
                 <div className="image-container">
                     <img src={require('../../assets/MYtineraryLogo.png')} className="logo" alt="logo" />
                 </div>
