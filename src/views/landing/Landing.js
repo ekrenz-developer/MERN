@@ -1,6 +1,7 @@
 import React from 'react';
 import Browsing from '../../components/browsing/Browsing';
 import Layout from '../../components/layout/Layout';
+import CarouselCustom from '../../components/carouselCustom/CarouselCustom';
 import './Landing.css';
 
 class Landing extends React.Component {
@@ -13,6 +14,8 @@ class Landing extends React.Component {
                 </div>
                 <hr/>
                 <Browsing />
+                <hr />
+                <CarouselCustom />
             </Layout>          
         )
     }

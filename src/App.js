@@ -6,6 +6,7 @@ import { BrowserRouter as Router, Switch, Route} from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
 //            <div className="app-container container">
 import Container from 'react-bootstrap/Container';
+
 class App extends React.Component {
     render(){
         return (

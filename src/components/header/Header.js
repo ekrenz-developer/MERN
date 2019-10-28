@@ -58,7 +58,7 @@ class Header extends React.Component {
                 </Navbar>
                 <hr/>
                 <hr/>
-                <div className="image-container">
+                <div className="image-containerr">
                     <img src={require('../../assets/MYtineraryLogo.png')} className="logo" alt="logo" />
                 </div>
             </div>
