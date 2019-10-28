@@ -1,23 +1,27 @@
 import React from 'react';
 import Header from './components/header/Header';
-import Footer from './components/footer/Footer';
 import Landing from './views/landing/Landing';
+import Login from './views/login/Login';
 import { BrowserRouter as Router, Switch, Route} from "react-router-dom";
-
+import 'bootstrap/dist/css/bootstrap.min.css';
+//            <div className="app-container container">
+import Container from 'react-bootstrap/Container';
 class App extends React.Component {
     render(){
         return (
-            <div className="app-container container">
-                <Header />
+            <Container className="app-container">
                 <Router>
+                    <Header />
                     <Switch>
                         <Route exact path="/">
                             <Landing />
                         </Route>
+                        <Route exact path="/login">
+                            <Login />
+                        </Route>
                     </Switch>                    
                 </Router>
-                <Footer />
-            </div>
+            </Container>
         )
     }
 }

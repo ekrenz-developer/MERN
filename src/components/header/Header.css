@@ -21,6 +21,11 @@
     height: 100%;
 }
 
+.img-user {
+    width: 50px;
+    height: 35px;
+}
+
 @media screen and (max-width:400px) {
     .image-container {
         width: 100%;
