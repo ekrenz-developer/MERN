@@ -1,12 +1,7 @@
 import React from 'react';
 import './Header.css';
 import { Link } from 'react-router-dom';
-import Dropdown from 'react-bootstrap/Dropdown';
-import Toggle from 'react-bootstrap/DropdownToggle';
-import Menu from 'react-bootstrap/DropdownMenu';
-import Item from 'react-bootstrap/Dropdown';
-import Navbar from 'react-bootstrap/Navbar';
-
+import { Navbar , Popover , OverlayTrigger } from 'react-bootstrap';
 /*
                 <nav className="navbar navbar-light navbar-expand-sm fixed-top bg-light menu">
                     <div className="navbar-nav">
@@ -39,22 +34,24 @@ import Navbar from 'react-bootstrap/Navbar';
 
 class Header extends React.Component {
     render(){
+        const popover = (
+            <Popover id="popover-basic">
+                <Popover.Content>
+                    <div className="submenu-container">
+                        <Link to="/signup">Create Account</Link>
+                        <Link to="/login">Log in</Link>
+                    </div>
+                </Popover.Content>
+            </Popover>
+        );
+
         return (
             <div className="header-container">
-                <Navbar fixed="top" bg="light" variant="light">
-                    <Dropdown drop="down">
-                        <Toggle variant="light">
-                            <img src={require('../../assets/user.png')} alt="" className="img-user"/>
-                        </Toggle>
-                        <Menu>
-                            <Item>
-                                <Link to="/signup">Create Account</Link>
-                            </Item>
-                            <Item>
-                                <Link to="/login">Log in</Link>
-                            </Item>                                                        
-                        </Menu>
-                    </Dropdown>                  
+                <Navbar expand="lg" fixed="top" bg="light" variant="light" className="navbar-container">
+                    <OverlayTrigger trigger="click" placement="bottom" overlay={popover}>
+                        <img src={require('../../assets/user.png')} alt="" className="img-user"/>
+                    </OverlayTrigger>
+                    <Navbar.Toggle aria-controls="responsive-navbar-nav"/>
                 </Navbar>
                 <hr/>
                 <hr/>
