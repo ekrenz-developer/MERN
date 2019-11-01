@@ -1,2 +1,2 @@
-console.log('Server is up!')
+console.log('Server is up!') 
 
