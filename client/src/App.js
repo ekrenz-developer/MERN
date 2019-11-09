@@ -1,7 +1,9 @@
 import React from 'react';
 import Header from './components/header/Header';
+import Footer from './components/footer/Footer';
 import Landing from './views/landing/Landing';
 import Login from './views/login/Login';
+import Cities from './views/cities/Cities';
 import { BrowserRouter as Router, Switch, Route} from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
 //            <div className="app-container container">
@@ -20,8 +22,13 @@ class App extends React.Component {
                         <Route exact path="/login">
                             <Login />
                         </Route>
-                    </Switch>                    
+                        <Route exact path="/signup">
+                            <Cities />
+                        </Route>                        
+                    </Switch>
+                    <Footer />                   
                 </Router>
+                
             </Container>
         )
     }
