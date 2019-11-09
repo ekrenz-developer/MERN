@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 mongoose
-    .connect('mongodb+srv://ekrenz:Casamia001@cluster0-nbmj8.mongodb.net/MYtinerary?retryWrites=true&w=majority')
+    .connect('mongodb+srv://' + process.env.DB_USER + ':' + process.env.DB_PASS + '@cluster0-nbmj8.mongodb.net/MYtinerary?retryWrites=true&w=majority')
     .catch(
         (err) => {
             console.log('Error ', err.message)
