@@ -5,7 +5,7 @@ class City extends React.Component {
     render(){
         return (
             <div className="city-container">
-                <span>{this.props.city}</span>
+                <span className="title">{this.props.city}</span>
             </div>
         )
     }

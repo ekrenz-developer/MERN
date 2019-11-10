@@ -28,7 +28,6 @@ class App extends React.Component {
                     </Switch>
                     <Footer />                   
                 </Router>
-                
             </Container>
         )
     }

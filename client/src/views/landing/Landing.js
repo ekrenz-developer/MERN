@@ -8,13 +8,10 @@ class Landing extends React.Component {
     render(){
         return (
             <Layout>
-                <hr/>
                 <div className="text">
                     Find you perfect trip, designed by insiders who know and love their cities
                 </div>
-                <hr/>
                 <Browsing />
-                <hr />
                 <CarouselCustom />
             </Layout>          
         )
