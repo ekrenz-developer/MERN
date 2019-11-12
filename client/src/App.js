@@ -8,27 +8,31 @@ import { BrowserRouter as Router, Switch, Route} from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
 //            <div className="app-container container">
 import Container from 'react-bootstrap/Container';
+import store from './state/store';
+import { Provider } from 'react-redux';
 
 class App extends React.Component {
     render(){
         return (
-            <Container className="app-container">
-                <Router>
-                    <Header />
-                    <Switch>
-                        <Route exact path="/">
-                            <Landing />
-                        </Route>
-                        <Route exact path="/login">
-                            <Login />
-                        </Route>
-                        <Route exact path="/signup">
-                            <Cities />
-                        </Route>                        
-                    </Switch>
-                    <Footer />                   
-                </Router>
-            </Container>
+            <Provider store = {store}>
+                <Container className="app-container">
+                    <Router>
+                        <Header />
+                        <Switch>
+                            <Route exact path="/">
+                                <Landing />
+                            </Route>
+                            <Route exact path="/login">
+                                <Login />
+                            </Route>
+                            <Route exact path="/signup">
+                                <Cities />
+                            </Route>                        
+                        </Switch>
+                        <Footer />                   
+                    </Router>
+                </Container>
+            </Provider>
         )
     }
 }

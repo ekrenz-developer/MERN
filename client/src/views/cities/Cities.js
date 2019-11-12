@@ -3,12 +3,13 @@ import Layout from '../../components/layout/Layout';
 import City from '../../components/city/City';
 import Loading from '../../components/loading/Loading';
 import { citiesAll } from '../../services/cities/cities';
+import { connect } from 'react-redux';
+import { getCities } from '../../state/cities/actions';
 
 class Cities extends React.Component { 
     constructor(props){
         super(props);
         this.state = {
-            cities: [],
             loading: false
         }
     }
@@ -21,7 +22,7 @@ class Cities extends React.Component {
             )
             .then(
                 data => {
-                    this.setState({cities: data})
+                    this.props.getCities(data)
                     this.setState({loading: false})
                 }
             );
@@ -34,15 +35,24 @@ class Cities extends React.Component {
                     <Loading />
                 }
                 {!this.state.loading &&
-                    this.state.cities.map(city => 
+                    this.props.cities.map((city, key) => 
                         <City
+                            key = { key }
                             city = { city.city }
                         />
                     )
                 }
-            </Layout>          
+            </Layout> 
         )
     }
 }
 
-export default Cities;
+const mapStateToProps = state => ({
+    cities: state.cities.cities
+})
+
+const mapDispatchToProps = dispatch => ({
+    getCities: cities => dispatch(getCities(cities))
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(Cities)
