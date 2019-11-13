@@ -1,14 +1,14 @@
 import { GET_CITIES } from './actionTypes';
 
 const initialState = {
-  cities: []
+  citiesList: []
 }
 
 const cities = (state = initialState, action) => {
   switch (action.type){
       case GET_CITIES:
         return {
-          cities: action.payload
+          citiesList: action.payload
         }
 
       default:

@@ -48,7 +48,7 @@ class Cities extends React.Component {
 }
 
 const mapStateToProps = state => ({
-    cities: state.cities.cities
+    cities: state.cities.citiesList
 })
 
 const mapDispatchToProps = dispatch => ({
