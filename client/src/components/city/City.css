@@ -5,7 +5,8 @@
     align-items: center;
     justify-content: center;
     height: 40px;
-    margin: 7px;
+    margin-top: 7px;
+    margin-bottom: 7px;
     background: linear-gradient(rgba(16, 71, 59, 0.5), transparent);
     background-color: lightblue;
 }

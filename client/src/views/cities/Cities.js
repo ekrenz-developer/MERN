@@ -5,12 +5,14 @@ import Loading from '../../components/loading/Loading';
 import { citiesAll } from '../../services/cities/cities';
 import { connect } from 'react-redux';
 import { getCities } from '../../state/cities/actions';
+import './Cities.css';
 
 class Cities extends React.Component { 
     constructor(props){
         super(props);
         this.state = {
-            loading: false
+            loading: false,
+            citiesFilter: ""
         }
     }
 
@@ -27,7 +29,15 @@ class Cities extends React.Component {
                 }
             );
     }
-    
+
+    handleChange = (e) => {
+        this.setState(
+            {
+                citiesFilter: e.target.value
+            }
+        )
+    }
+
     render(){
         return (
             <Layout>
@@ -35,14 +45,27 @@ class Cities extends React.Component {
                     <Loading />
                 }
                 {!this.state.loading &&
-                    this.props.cities.map((city, key) => 
+                    <div className = "filter-container">
+                        <label htmlFor="filter">Filter our current cities</label>
+                        <input className="input-container" type="text" id="filter" 
+                            value = { this.state.citiesFilter } 
+                            onChange = { this.handleChange }
+                        />
+                    </div>
+                }                    
+                {!this.state.loading &&
+                    this.props.cities
+                        .filter(city => 
+                            city.city.substring(0, this.state.citiesFilter.length).toLowerCase() === this.state.citiesFilter.toLowerCase()
+                        )
+                        .map((city, key) =>
                         <City
                             key = { key }
                             city = { city.city }
                         />
                     )
-                }
-            </Layout> 
+                }              
+            </Layout>
         )
     }
 }
