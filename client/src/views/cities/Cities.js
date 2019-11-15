@@ -1,5 +1,6 @@
 import React from 'react';
-import Layout from '../../components/layout/Layout';
+import LayoutView from '../../components/layoutView/LayoutView';
+import CitiesList from '../../components/citiesList/CitiesList';
 import City from '../../components/city/City';
 import Loading from '../../components/loading/Loading';
 import { citiesAll } from '../../services/cities/cities';
@@ -40,7 +41,7 @@ class Cities extends React.Component {
 
     render(){
         return (
-            <Layout>
+            <LayoutView scrollbar={false}>
                 {this.state.loading &&
                     <Loading />
                 }
@@ -53,19 +54,23 @@ class Cities extends React.Component {
                         />
                     </div>
                 }                    
-                {!this.state.loading &&
-                    this.props.cities
-                        .filter(city => 
-                            city.city.substring(0, this.state.citiesFilter.length).toLowerCase() === this.state.citiesFilter.toLowerCase()
-                        )
-                        .map((city, key) =>
-                        <City
-                            key = { key }
-                            city = { city.city }
-                        />
-                    )
+                {!this.state.loading &&              
+                    <CitiesList>
+                        {
+                            this.props.cities
+                                .filter(city => 
+                                    city.city.substring(0, this.state.citiesFilter.length).toLowerCase() === this.state.citiesFilter.toLowerCase()
+                                )
+                                .map((city, key) =>
+                                <City
+                                    key = { key }
+                                    city = { city.city }
+                                />
+                            )
+                        }
+                    </CitiesList>
                 }              
-            </Layout>
+            </LayoutView>
         )
     }
 }

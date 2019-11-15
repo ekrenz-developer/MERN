@@ -1,0 +1,6 @@
+.citiesList-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    height: 53vh;
+}

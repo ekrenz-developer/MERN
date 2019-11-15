@@ -1,12 +1,12 @@
 import React from 'react';
-import Layout from '../../components/layout/Layout';
+import LayoutView from '../../components/layoutView/LayoutView';
 
 class Login extends React.Component {
     render(){
         return (
-            <Layout>
+            <LayoutView>
                 <p>Login</p>
-            </Layout>          
+            </LayoutView>          
         )
     }
 }
