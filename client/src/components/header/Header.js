@@ -1,9 +1,9 @@
 import React from 'react';
-import './TopBar.css';
+import './Header.css';
 import { Link } from 'react-router-dom';
-import { Navbar , Popover , OverlayTrigger , Nav } from 'react-bootstrap';
+import { Navbar , Popover , OverlayTrigger } from 'react-bootstrap';
 
-class TopBar extends React.Component {
+class Header extends React.Component {
     render(){
         const popover = (
             <Popover id="popover-basic">
@@ -17,7 +17,7 @@ class TopBar extends React.Component {
         );
 
         return (
-            <div className="topbar-container">
+            <div className="header-container">
                 <Navbar collapseOnSelect expand="lg" fixed="top" bg="light" variant="light" className="navbar-container">
                     <OverlayTrigger placement="bottom" overlay={popover} delay={{ show: 250, hide: 300 }}>
                         <img src={require('../../assets/user.png')} alt="" className="img-user"/>
@@ -37,4 +37,4 @@ class TopBar extends React.Component {
     }
 }
 
-export default TopBar;
+export default Header;
