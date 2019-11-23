@@ -51,6 +51,7 @@ class Cities extends React.Component {
             />
           </div>
         )}
+
         {!this.state.loading && (
           <CitiesList>
             {this.props.cities
