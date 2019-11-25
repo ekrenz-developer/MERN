@@ -10,8 +10,8 @@ class Itineraries extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      city: '',
-      loading: false
+      loading: false,
+      city: ''
     };
   }
 
