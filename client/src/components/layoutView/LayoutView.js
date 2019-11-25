@@ -5,7 +5,9 @@ import ScrollArea from 'react-scrollbar';
 class LayoutView extends React.Component {
     render(){
         return (
-            <section className="layoutView-container">
+            <section 
+                className={this.props.withHeader ? 'layoutViewWithHeader-container' : 'layoutView-container'}
+            >
                 {this.props.scrollbar &&
                     <ScrollArea className="scrollArea-container">
                         { this.props.children }

@@ -4,6 +4,7 @@ import City from '../../components/city/City';
 import { connect } from 'react-redux';
 import { citiesAll } from '../../services/cities/cities';
 import { getCities } from '../../state/cities/actions';
+import Loading from '../../components/loading/Loading';
 import './Itineraries.css';
 
 class Itineraries extends React.Component {
@@ -26,6 +27,7 @@ class Itineraries extends React.Component {
         }
       );
     }else{
+      this.setState({ loading: true });
       fetch(citiesAll)
         .then(response => response.json())
         .then(data => {
@@ -46,8 +48,9 @@ class Itineraries extends React.Component {
   render() {
     return (
       <LayoutView scrollbar={false}>
+        {this.state.loading && <Loading />}
         {!this.state.loading && this.state.city && (
-          <City city={this.state.city} />
+          <City button={false} city={this.state.city} />
         )}
       </LayoutView>
     );

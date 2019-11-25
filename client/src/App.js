@@ -1,5 +1,4 @@
 import React from 'react';
-import Header from './components/header/Header';
 import Footer from './components/footer/Footer';
 import Landing from './views/landing/Landing';
 import Login from './views/login/Login';
@@ -18,7 +17,6 @@ class App extends React.Component {
       <Provider store={store}>
         <Container className='app-container'>
           <Router>
-            <Header />
             <Switch>
               <Route exact path='/'>
                 <Landing />

@@ -3,6 +3,15 @@
     flex-direction: column;
     align-items: center;
     /*justify-content: center;*/
+    height: 93vh;
+    padding-bottom: 8px;
+}
+
+.layoutViewWithHeader-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /*justify-content: center;*/
     height: 83vh;
     padding-bottom: 8px;
 }

@@ -8,13 +8,15 @@ import { connect } from 'react-redux';
 import { getCities } from '../../state/cities/actions';
 import './Cities.css';
 import { Link } from 'react-router-dom';
+import Header from '../../components/header/Header';
 
 class Cities extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       loading: false,
-      citiesFilter: ''
+      citiesFilter: '',
+      withHeader: true
     };
   }
 
@@ -36,44 +38,46 @@ class Cities extends React.Component {
 
   render() {
     return (
-      <LayoutView scrollbar={false}>
-        {this.state.loading && <Loading />}
-        {!this.state.loading && (
-          <div className='filter-container'>
-            <label htmlFor='filter'>Filter our current cities</label>
-            <input
-              className='input-container'
-              type='text'
-              id='filter'
-              value={this.state.citiesFilter}
-              onChange={this.handleChange}
-            />
-          </div>
-        )}
-
-        {!this.state.loading && (
-          <CitiesList>
-            {this.props.cities
-              .filter(
-                city =>
-                  city.city
-                    .substring(0, this.state.citiesFilter.length)
-                    .toLowerCase() === this.state.citiesFilter.toLowerCase()
-              )
-              .map((city, key) => (
-                <Link 
-                  to={{
-                    pathname: '/cities/' + city._id + '/itineraries'
-                  }}
-                  key={key}
-                >                 
-                  <City id={city._id} city={city.city} />
-                </Link>
-              ))
-            }
-          </CitiesList>
-        )}
-      </LayoutView>
+      <React.Fragment>
+        <Header />
+        <LayoutView scrollbar={false} withHeader={this.state.withHeader}>
+          {this.state.loading && <Loading />}
+          {!this.state.loading && (
+            <div className='filter-container'>
+              <label htmlFor='filter'>Filter our current cities</label>
+              <input
+                className='input-container'
+                type='text'
+                id='filter'
+                value={this.state.citiesFilter}
+                onChange={this.handleChange}
+              />
+            </div>
+          )}
+          {!this.state.loading && (
+            <CitiesList>
+              {this.props.cities
+                .filter(
+                  city =>
+                    city.city
+                      .substring(0, this.state.citiesFilter.length)
+                      .toLowerCase() === this.state.citiesFilter.toLowerCase()
+                )
+                .map((city, key) => (
+                  <Link 
+                    to={{
+                      pathname: '/cities/' + city._id + '/itineraries'
+                    }}
+                    key={key}
+                  >        
+                    <City id={city._id} city={city.city} button={true}/>
+                  </Link>
+                ))
+              }
+            </CitiesList>
+          )}
+        </LayoutView>
+      </React.Fragment>
     );
   }
 }
