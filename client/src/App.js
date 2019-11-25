@@ -32,9 +32,7 @@ class App extends React.Component {
               <Route exact path='/cities'>
                 <Cities />
               </Route>
-              <Route exact path='/itineraries'>
-                <Itineraries />
-              </Route>
+              <Route exact path='/cities/:city/itineraries' component={Itineraries} />
             </Switch>
             <Footer />
           </Router>

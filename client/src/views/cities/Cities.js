@@ -7,6 +7,7 @@ import { citiesAll } from '../../services/cities/cities';
 import { connect } from 'react-redux';
 import { getCities } from '../../state/cities/actions';
 import './Cities.css';
+import { Link } from 'react-router-dom';
 
 class Cities extends React.Component {
   constructor(props) {
@@ -32,8 +33,6 @@ class Cities extends React.Component {
       citiesFilter: e.target.value
     });
   };
-
-  handleClickCity = () => {};
 
   render() {
     return (
@@ -62,8 +61,16 @@ class Cities extends React.Component {
                     .toLowerCase() === this.state.citiesFilter.toLowerCase()
               )
               .map((city, key) => (
-                <City key={key} city={city.city} />
-              ))}
+                <Link 
+                  to={{
+                    pathname: '/cities/' + city._id + '/itineraries'
+                  }}
+                  key={key}
+                >                 
+                  <City id={city._id} city={city.city} />
+                </Link>
+              ))
+            }
           </CitiesList>
         )}
       </LayoutView>
