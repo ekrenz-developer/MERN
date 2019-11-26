@@ -1,6 +1,6 @@
 .footer-container {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
     height: 7vh;
     width: 100%;

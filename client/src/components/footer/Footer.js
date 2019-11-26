@@ -1,11 +1,16 @@
 import React from 'react';
 import './Footer.css';
-import { Link } from 'react-router-dom';
+import { Link , withRouter } from 'react-router-dom';
 
-class Footer extends React.Component {
+class Footer extends React.Component {   
     render(){
         return (
             <div className="footer-container">
+                {this.props.location.pathname.split('/').pop() === 'itineraries' && (
+                    <div onClick={this.props.history.goBack}>
+                        Atras
+                    </div>
+                )}
                 <Link to="/">
                     <img src={require('../../assets/homeIcon.png')} alt="home" className="img-container"/>
                 </Link>
@@ -14,4 +19,4 @@ class Footer extends React.Component {
     }
 }
 
-export default Footer;
+export default withRouter(Footer);
