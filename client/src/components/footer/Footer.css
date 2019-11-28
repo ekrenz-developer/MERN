@@ -1,13 +1,40 @@
 .footer-container {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    height: 7vh;
-    width: 100%;
-    justify-content: center;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 7vh;
+  width: 100%;
+  justify-content: center;
 }
 
 .img-container {
-    width: 28px;
-    height: 28px;
+  width: 28px;
+  height: 28px;
+}
+
+.left-container {
+  width: 33%;
+  height: 7vh;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.center-container {
+  width: 33%;
+  height: 7vh;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.right-container {
+  width: 33%;
+  height: 7vh;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
 }

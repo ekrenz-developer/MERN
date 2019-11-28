@@ -1,21 +1,21 @@
 .city-container {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 55px;
-    margin-top: 7px;
-    margin-bottom: 7px;
-    background: linear-gradient(rgba(16, 71, 59, 0.5), transparent);
-    background-color: lightblue;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 55px;
+  margin-top: 7px;
+  margin-bottom: 7px;
+  background: linear-gradient(rgba(16, 71, 59, 0.5), transparent);
+  background-color: lightblue;
 }
 
 .title {
-    font-size: 15px;
+  font-size: 15px;
 }
 
 .listItem-container {
-    justify-content: center;
-    text-align: center;
+  justify-content: center;
+  text-align: center;
 }

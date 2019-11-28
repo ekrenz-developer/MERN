@@ -6,9 +6,7 @@ class City extends React.Component {
   render() {
     return (
       <div className='city-container'>
-        {!this.props.button && (
-            <span className='title'>{this.props.city}</span>
-        )}
+        {!this.props.button && <span className='title'>{this.props.city}</span>}
         {this.props.button && (
           <ListItem button className='listItem-container'>
             <span className='title'>{this.props.city}</span>
