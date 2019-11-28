@@ -63,6 +63,7 @@ class Itineraries extends React.Component {
                 helvetica, craft beer labore wes anderson cred nesciunt sapiente
                 ea proident.
               </div>
+              {/*prueba*/}
             </Collapse>
           </React.Fragment>
         )}
