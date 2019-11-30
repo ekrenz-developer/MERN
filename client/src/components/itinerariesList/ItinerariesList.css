@@ -1,0 +1,8 @@
+.itinerariesList-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    height: 83vh;
+    align-items: center;
+    justify-content: center;
+}

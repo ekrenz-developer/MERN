@@ -6,9 +6,14 @@ class LayoutComponent extends React.Component {
     render(){
         return (
             <div className="layoutComponent-container">
-                <ScrollArea className="scrollAreaComponent-container">
-                    { this.props.children }
-                </ScrollArea>
+                {this.props.scrollbar &&
+                    <ScrollArea className="scrollAreaComponent-container">
+                        { this.props.children }
+                    </ScrollArea>
+                }
+                {!this.props.scrollbar &&
+                    this.props.children
+                }            
             </div>
         )
     }

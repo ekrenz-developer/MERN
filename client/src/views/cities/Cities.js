@@ -55,7 +55,7 @@ class Cities extends React.Component {
             </div>
           )}
           {!this.state.loading && (
-            <CitiesList>
+            <CitiesList scrollbar={true}>
               {this.props.cities
                 .filter(
                   city =>
