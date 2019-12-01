@@ -13,32 +13,30 @@ class Itinerary extends React.Component {
 	render() {
     return (
       <div className='itinerariy-container'>
-				{
 					<Card className="card-container">
-						<div className='card-content'>
-							<Row className='card-row'>
-								<Col>
-									<Avatar>H</Avatar>
-								</Col>
-								<Col>
-									Prueba
-								</Col>
-							</Row>
-							<Collapse in={this.state.open}>
-								<Row id='activities' className='card-row'>
-									<div>Actividades</div>
+							<div className='card-content'>
+								<Row className='card-itinerary'>
+									<Col>
+										<Avatar>H</Avatar>
+									</Col>
+									<Col>
+										Prueba
+									</Col>
+								</Row>
+								<Collapse in={this.state.open}>
+									<Row id='activities' className='card-activities'>
+										<div>Actividades</div>
 									</Row>
-							</Collapse>			
-						</div>
-						<Button className="viewAll-button"
-							variant='light' 
-							size='sm' 
-							onClick={() => this.setState({open: !this.state.open})}
-						>
-							<span className="card-text">View All</span>
-						</Button>							
-					</Card>				
-				}
+								</Collapse>			
+							</div>
+							<Button className="viewAll-button"
+								variant='light' 
+								size='sm' 
+								onClick={() => this.setState({open: !this.state.open})}
+							>
+								<span className="card-text">View All</span>
+							</Button>											
+					</Card>
       </div>
     );
   }
