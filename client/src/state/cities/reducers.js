@@ -1,7 +1,7 @@
 import { GET_CITIES } from './actionTypes';
 
 const initialState = {
-  citiesList: []
+    citiesList: []
 }
 
 const cities = (state = initialState, action) => {

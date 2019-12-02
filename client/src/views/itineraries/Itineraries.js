@@ -8,6 +8,7 @@ import Loading from '../../components/loading/Loading';
 import ItinerariesList from '../../components/itinerariesList/ItinerariesList';
 import Itinerary from '../../components/itinerary/Itinerary';
 import { Button } from 'react-bootstrap';
+import { openItinerary , closeItinerary , initItinerary } from '../../state/itineraries/actions';
 
 import './Itineraries.css';
 
@@ -16,9 +17,17 @@ class Itineraries extends React.Component {
     super(props);
     this.state = {
       loading: false,
-      city: '',
-      open: false
+      city: ''
     };
+  }
+
+  onClick = (itinerary) => {
+    return (
+      !this.props.itineraries.open ?
+        this.props.openItinerary(itinerary)
+      :
+        this.props.closeItinerary(null)
+    )
   }
 
   componentDidMount() {
@@ -42,42 +51,7 @@ class Itineraries extends React.Component {
           });
         });
     }
-    /*
-action onClick={() => this.setState({ open: !this.state.open })}
-
-          <React.Fragment>
-            <City city={this.state.city} />
-            <Card>
-              <Card.Body>
-                Prueba
-              </Card.Body>
-            </Card>
-            <Card>
-              <Card.Body>
-                Prueba
-              </Card.Body>
-            </Card>
-            <ListGroup className={'listGroup-container'}>
-              <ListGroup.Item>
-                Prueba
-              </ListGroup.Item>
-              <ListGroup.Item className={'listItem-container'} >
-                <div clssName="button-container" onClick={() => this.setState({ open: !this.state.open })}>
-                  View All
-                </div>
-                <Collapse in={this.state.open}>
-                  <div id='activities'>
-                    Anim pariatur cliche reprehenderit, enim eiusmod high life
-                    accusamus terry richardson ad squid. Nihil anim keffiyeh
-                    helvetica, craft beer labore wes anderson cred nesciunt sapiente
-                    ea proident.
-                  </div>
-                </Collapse>              
-              </ListGroup.Item>
-            </ListGroup>
-          </React.Fragment>
-  
-    */
+    this.props.initItinerary(null);
   }
 
   render() {
@@ -87,17 +61,30 @@ action onClick={() => this.setState({ open: !this.state.open })}
         {!this.state.loading && this.state.city && (
           <React.Fragment>
             <City city={this.state.city.city} />
-            <ItinerariesList scrollbar={true}>
-              {this.state.city.itineraries && this.state.city.itineraries.length > 0 && (
-                this.state.city.itineraries.map((itinerary, key) => (
-                  <Itinerary
-                    itinerary={itinerary}
-                    key={itinerary._id}
-                  />
-                ))                
-              )}
-              <Button variant="link" onClick={this.props.history.goBack}>Choose another city...</Button>
-            </ItinerariesList>
+            {!this.props.itineraries.open && (
+              <ItinerariesList scrollbar={true}>
+                {this.state.city.itineraries && this.state.city.itineraries.length > 0 && (
+                  this.state.city.itineraries.map((itinerary, key) => (
+                    <Itinerary
+                      itinerary={itinerary}
+                      key={itinerary._id}
+                      onClick={() => this.onClick(itinerary)}
+                    />
+                  ))                
+                )}
+                <Button variant="link" onClick={this.props.history.goBack}>Choose another city...</Button>
+              </ItinerariesList>
+            )}
+            {this.props.itineraries.open && (
+              <ItinerariesList scrollbar={false}>
+                <Itinerary
+                  itinerary={this.props.itineraries.open}
+                  key={this.props.itineraries.open._id}
+                  onClick={() => this.onClick(this.props.itineraries.open)}
+                />
+                <Button variant="link" onClick={this.props.history.goBack}>Choose another city...</Button>
+              </ItinerariesList>           
+            )}
           </React.Fragment>
         )}
       </LayoutView>
@@ -106,11 +93,15 @@ action onClick={() => this.setState({ open: !this.state.open })}
 }
 
 const mapStateToProps = state => ({
-  cities: state.cities.citiesList
+  cities: state.cities.citiesList,
+  itineraries: state.itineraries
 });
 
 const mapDispatchToProps = dispatch => ({
-  getCities: cities => dispatch(getCities(cities))
+  getCities: cities => dispatch(getCities(cities)),
+	openItinerary: itinerary => dispatch(openItinerary(itinerary)),
+  closeItinerary: itinerary => dispatch(closeItinerary(itinerary)),
+  initItinerary: itinerary => dispatch(initItinerary(itinerary))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Itineraries);

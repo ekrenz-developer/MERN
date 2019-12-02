@@ -1,9 +1,8 @@
 const City = require('./city.model');
-const Itinerary = require('../itinerary/itinerary.model');
 
 const getCities = (req, res) => {
   City.find({})
-    .populate('itineraries')
+    .populate({ path: 'itineraries', populate: { path: 'activities'}})
     .then(cities => {
       res.json(cities).status(204);
     });

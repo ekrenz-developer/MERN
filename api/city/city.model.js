@@ -1,4 +1,6 @@
 const mongoose = require('mongoose');
+const Itinerary = require('../itinerary/itinerary.model');
+
 const citySchema = new mongoose.Schema({
   city: String,
   country: String,
