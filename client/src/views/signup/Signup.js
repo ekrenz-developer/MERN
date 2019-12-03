@@ -64,7 +64,7 @@ class Signup extends React.Component {
 							fieldType={'checkbox'}
 							label={'I agree to MYinerary Terms & Conditions.'}
 						/>
-						<Button type='submit' variant='dark' block size='sm'>OK</Button>
+						<Button type='submit' variant='dark' block size='sm'>OK </Button>
 					</Form>
 				</LayoutView>
 			</React.Fragment>
