@@ -2,12 +2,12 @@ import React from 'react';
 import Footer from './components/footer/Footer';
 import Landing from './views/landing/Landing';
 import Login from './views/login/Login';
+import Signup from './views/signup/Signup';
 import Cities from './views/cities/Cities';
 import Itineraries from './views/itineraries/Itineraries';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 //            <div className="app-container container">
-import Container from 'react-bootstrap/Container';
 import store from './state/store';
 import { Provider } from 'react-redux';
 
@@ -15,7 +15,7 @@ class App extends React.Component {
   render() {
     return (
       <Provider store={store}>
-        <Container className='app-container'>
+        <div className='app-container'>
           <Router>
             <Switch>
               <Route exact path='/'>
@@ -24,9 +24,7 @@ class App extends React.Component {
               <Route exact path='/login'>
                 <Login />
               </Route>
-              <Route exact path='/signup'>
-                <Login />
-              </Route>
+              <Route exact path='/signup' component={Signup} />
               <Route exact path='/cities'>
                 <Cities />
               </Route>
@@ -34,7 +32,7 @@ class App extends React.Component {
             </Switch>
             <Footer />
           </Router>
-        </Container>
+        </div>
       </Provider>
     );
   }

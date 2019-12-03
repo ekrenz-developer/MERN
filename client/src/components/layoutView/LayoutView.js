@@ -10,11 +10,15 @@ class LayoutView extends React.Component {
             >
                 {this.props.scrollbar &&
                     <ScrollArea className="scrollArea-container">
-                        { this.props.children }
+                        <div className='view-container'>
+                            {this.props.children}
+                        </div>
                     </ScrollArea>
                 }
                 {!this.props.scrollbar &&
-                    this.props.children
+                    <div className='view-container'>
+                        {this.props.children}
+                    </div>
                 }
             </section>
         )
