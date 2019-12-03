@@ -5,6 +5,8 @@
   height: 7vh;
   width: 100%;
   justify-content: center;
+  padding-left: 10px;
+  padding-right: 10px;  
 }
 
 .img-container {
