@@ -12,6 +12,7 @@ class FormField extends React.Component {
 							required
 							name={this.props.name}
 							label={this.props.label}
+							onChange={this.props.onChange}
 						/>
 					</React.Fragment>
 				)}
@@ -26,7 +27,8 @@ class FormField extends React.Component {
 							<Form.Control className='control-container'
 								as={this.props.as}
 								type={this.props.type} 
-								placeholder={this.props.placeholder} 
+								placeholder={this.props.placeholder}
+								onChange={this.props.onChange} 
 							>
 								{this.props.children}
 							</Form.Control>
