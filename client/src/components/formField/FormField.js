@@ -9,7 +9,7 @@ class FormField extends React.Component {
 				{this.props.fieldType === 'checkbox' && (
 					<React.Fragment>
 						<Form.Check
-							required
+							
 							name={this.props.name}
 							label={this.props.label}
 							onChange={this.props.onChange}

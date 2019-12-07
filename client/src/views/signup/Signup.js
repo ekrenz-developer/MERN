@@ -22,14 +22,24 @@ class Signup extends React.Component {
 					country: '',
 					termsAndConditions: ''
 				},
-				status: ''
+				status: 'init'
 			}
 		};
 	}
 
-  handleSubmit = () => {
-			console.log('submit')
-			console.log(this.state)
+	handleSubmit = (e) => {
+		this.setState(
+			{
+				signUp: {
+					...this.state.signUp,
+					status: 'loading'
+				}
+			}
+		);
+		this.props.signUp(this.state.signUp);
+		/*console.log(this.state);*/
+		return(false);
+		/* e.preventDefault();*/
 	}
 	
 	handleChange = (name, type) => (e) => {
@@ -47,13 +57,14 @@ class Signup extends React.Component {
 				value = e.target.value
 				break;
 		}
-		console.log('name= ' + name + ',value= ' +value)
-	
+		/*console.log('name= ' + name + ',value= ' +value)*/
 		this.setState(
 			{
 				signUp: {
+					...this.state.signUp,
 					user: {
-						[name]: value 
+						...this.state.signUp.user,
+						[name]: value
 					}
 				}
 			}
@@ -66,7 +77,7 @@ class Signup extends React.Component {
 				<Header />            
 				<LayoutView withHeader={true} scrollbar={true}>
 					<p>Create Account</p>
-					<Form onSubmit={(e)=>{e.preventDefault()}}>
+					<Form onSubmit={this.handleSubmit}>
 						<Avatar alt='userImage' src={require('../../assets/user.png')}/>
 						<FormField
 							controlId={'userName'}
@@ -119,7 +130,7 @@ class Signup extends React.Component {
 							onChange={this.handleChange('termsAndConditions', 'checkbox')}
 							controlId={'termsAndConditions'}
 						/>
-						<Button type='submit' variant='dark' block size='sm' onClick={() => this.handleSubmit()}>OK </Button>
+						<Button type='submit' variant='dark' block size='sm'>OK </Button>
 					</Form>
 				</LayoutView>
 			</React.Fragment>
@@ -128,13 +139,13 @@ class Signup extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  users: state.users
+	users: state.users
 });
 
 const mapDispatchToProps = dispatch => ({
-  signUp: user => dispatch(signUp(user)),
+	signUp: user => dispatch(signUp(user)),
 	success: user => dispatch(success(user)),
-  failure: error => dispatch(failure(error))
+	failure: error => dispatch(failure(error))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Signup);
