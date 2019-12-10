@@ -1,1 +1,3 @@
-export const userRegister = 'http://localhost:8080/user/register';
+import environment from '../../utils/environments';
+
+export const userRegister = environment + '/user/register';

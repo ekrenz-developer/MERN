@@ -1,1 +1,3 @@
-export const citiesAll = 'http://localhost:8080/cities/all';
+import environment from '../../utils/environments';
+
+export const citiesAll = environment + '/cities/all';
