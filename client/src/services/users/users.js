@@ -1,0 +1,1 @@
+export const userRegister = 'http://localhost:8080/user/register';
