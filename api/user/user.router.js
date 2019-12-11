@@ -1,7 +1,9 @@
 const router = require('express').Router();
 const userController = require('./user.controller');
 
-router.get("/users/register", userController.addUser);
-router.get("/users/login", userController.getUser);
+console.log('aca')
+
+router.post("/user/register", userController.addUser);
+router.get("/user/login", userController.getUser);
 
 module.exports = router;

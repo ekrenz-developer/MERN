@@ -8,32 +8,28 @@ import Itineraries from './views/itineraries/Itineraries';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 //            <div className="app-container container">
-import store from './state/store';
-import { Provider } from 'react-redux';
 
 class App extends React.Component {
   render() {
     return (
-      <Provider store={store}>
-        <div className='app-container'>
-          <Router>
-            <Switch>
-              <Route exact path='/'>
-                <Landing />
-              </Route>
-              <Route exact path='/login'>
-                <Login />
-              </Route>
-              <Route exact path='/signup' component={Signup} />
-              <Route exact path='/cities'>
-                <Cities />
-              </Route>
-              <Route exact path='/cities/:city/itineraries' component={Itineraries} />
-            </Switch>
-            <Footer />
-          </Router>
-        </div>
-      </Provider>
+      <div className='app-container'>
+        <Router>
+          <Switch>
+            <Route exact path='/'>
+              <Landing />
+            </Route>
+            <Route exact path='/login'>
+              <Login />
+            </Route>
+            <Route exact path='/signup' component={Signup} />
+            <Route exact path='/cities'>
+              <Cities />
+            </Route>
+            <Route exact path='/cities/:city/itineraries' component={Itineraries} />
+          </Switch>
+          <Footer />
+        </Router>
+      </div>
     );
   }
 }

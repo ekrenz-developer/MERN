@@ -1,9 +1,10 @@
 import { SIGNUP_REQUEST , USER_SUCCESS , USER_FAILURE } from './actionTypes';
 
 const initialState = {
-	user: [],
+	user: {},
 	isFetching: 'init',
-	error: ''
+	error: '',
+	token: ''
 }
 
 const users = (state = initialState, action) => {

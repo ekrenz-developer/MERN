@@ -7,6 +7,7 @@ import './Signup.css';
 import { Avatar } from '@material-ui/core';
 import { connect } from 'react-redux';
 import { signUp , success , failure } from '../../state/users/actions';
+import { userRegister } from '../../services/users/users';
 
 class Signup extends React.Component {
 	constructor(props) {
@@ -20,14 +21,15 @@ class Signup extends React.Component {
 					firstName: '',
 					lastName: '',
 					country: '',
-					termsAndConditions: ''
+					conditions: ''
 				},
 				status: 'init'
 			}
 		};
 	}
 
-	handleSubmit = (e) => {
+	handleSubmit = async (e) => {
+		e.preventDefault();
 		this.setState(
 			{
 				signUp: {
@@ -36,10 +38,30 @@ class Signup extends React.Component {
 				}
 			}
 		);
-		this.props.signUp(this.state.signUp);
-		/*console.log(this.state);*/
-		return(false);
-		/* e.preventDefault();*/
+		await this.props.signUp(this.state.signUp);
+		fetch(
+			userRegister, 
+			{
+				method: 'POST',
+				body: JSON.stringify(this.state.signUp.user),
+				headers: { 'Content-Type': 'application/json'}				
+			}
+		).then(response => response.json())
+		.then(data => {
+			this.setState(
+				{
+					signUp: {
+						...this.state.signUp,
+						status: 'succes'
+					}
+				}
+			);
+			console.log(data);
+			this.props.success(this.state.signUp);
+			console.log(this.state);
+		});
+		console.log(this.state);
+		console.log('fin')
 	}
 	
 	handleChange = (name, type) => (e) => {
