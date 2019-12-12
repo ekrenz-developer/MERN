@@ -1,4 +1,4 @@
-import { OPEN_ITINERARY , CLOSE_ITINERARY , INIT_ITINERARY} from './actionTypes';
+import { OPEN_ITINERARY , CLOSE_ITINERARY , INIT_ITINERARY} from '../actionTypes';
 
 export const openItinerary = payload => {
     return {

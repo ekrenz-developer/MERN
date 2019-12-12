@@ -1,17 +1,30 @@
+
 import React from 'react';
 import LayoutView from '../../components/layoutView/LayoutView';
 import Header from '../../components/header/Header';
 import FormField from '../../components/formField/FormField';
 import { Form , Button } from 'react-bootstrap';
-import './Signup.css';
+import './SignUp.css';
 import { Avatar } from '@material-ui/core';
 import { connect } from 'react-redux';
-import { signUp , success , failure } from '../../state/users/actions';
+import { signUp } from '../../state/user/actions';
 import { userRegister } from '../../services/users/users';
 
-class Signup extends React.Component {
+class SignUp extends React.Component {
 	constructor(props) {
 		super(props);
+		this.state = {
+			user: {
+				userName: '',
+				password: '',
+				email: '',
+				firstName: '',
+				lastName: '',
+				country: '',
+				conditions: ''				
+			}
+		}
+		/*
 		this.state = {
 			signUp: {
 				user: {
@@ -26,9 +39,19 @@ class Signup extends React.Component {
 				status: 'init'
 			}
 		};
+		*/
 	}
 
-	handleSubmit = async (e) => {
+	handleSubmit = e => {
+		e.preventDefault()
+		console.log('aca')
+		let init = {
+			method: 'POST',
+			body: JSON.stringify(this.state.user),
+			headers: { 'Content-Type': 'application/json'}				
+		}
+		this.props.signUp(userRegister, init);
+		/*
 		e.preventDefault();
 		this.setState(
 			{
@@ -61,7 +84,7 @@ class Signup extends React.Component {
 			console.log(this.state);
 		});
 		console.log(this.state);
-		console.log('fin')
+		console.log('fin')*/
 	}
 	
 	handleChange = (name, type) => (e) => {
@@ -82,12 +105,9 @@ class Signup extends React.Component {
 		/*console.log('name= ' + name + ',value= ' +value)*/
 		this.setState(
 			{
-				signUp: {
-					...this.state.signUp,
-					user: {
-						...this.state.signUp.user,
-						[name]: value
-					}
+				user: {
+					...this.state.user,
+					[name]: value
 				}
 			}
 		)
@@ -161,13 +181,14 @@ class Signup extends React.Component {
 }
 
 const mapStateToProps = state => ({
-	users: state.users
+	user: state.user
 });
 
-const mapDispatchToProps = dispatch => ({
-	signUp: user => dispatch(signUp(user)),
+const mapDispatchToProps = {
+	signUp: (endpoint, init) => signUp(endpoint, init)
+	/*,
 	success: user => dispatch(success(user)),
-	failure: error => dispatch(failure(error))
-});
+	failure: error => dispatch(failure(error))*/
+};
 
-export default connect(mapStateToProps, mapDispatchToProps)(Signup);
+export default connect(mapStateToProps, mapDispatchToProps)(SignUp);

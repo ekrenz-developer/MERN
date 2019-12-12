@@ -2,7 +2,7 @@ import React from 'react';
 import Footer from './components/footer/Footer';
 import Landing from './views/landing/Landing';
 import Login from './views/login/Login';
-import Signup from './views/signup/Signup';
+import SignUp from './views/signUp/SignUp';
 import Cities from './views/cities/Cities';
 import Itineraries from './views/itineraries/Itineraries';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
@@ -21,7 +21,7 @@ class App extends React.Component {
             <Route exact path='/login'>
               <Login />
             </Route>
-            <Route exact path='/signup' component={Signup} />
+            <Route exact path='/signup' component={SignUp} />
             <Route exact path='/cities'>
               <Cities />
             </Route>

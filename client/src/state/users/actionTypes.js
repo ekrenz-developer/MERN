@@ -1,3 +1,0 @@
-export const SIGNUP_REQUEST = 'SIGNUP_REQUEST';
-export const USER_SUCCESS = 'USER_SUCCESS';
-export const USER_FAILURE = 'USER_FAILURE';

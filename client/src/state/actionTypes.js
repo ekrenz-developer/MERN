@@ -1,0 +1,13 @@
+export const GET_CITIES = 'GET_CITIES';
+
+export const OPEN_ITINERARY = 'OPEN_ITINERARY';
+export const CLOSE_ITINERARY = 'CLOSE_ITINERARY';
+export const INIT_ITINERARY = 'INIT_ITINERARY';
+
+export const USER_REQUEST = 'USER_REQUEST';
+export const USER_SUCCESS = 'USER_SUCCESS';
+export const USER_FAILURE = 'USER_FAILURE';
+
+export const FETCH_LOADING  = 'FETCH_LOADING';
+export const FETCH_SUCCESS  = 'FETCH_SUCCESS';
+export const FETCH_FAILURE  = 'FETCH_FAILURE';

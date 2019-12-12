@@ -1,4 +1,4 @@
-import { GET_CITIES } from './actionTypes';
+import { GET_CITIES } from '../actionTypes';
 
 export const getCities = payload => {
   return {
