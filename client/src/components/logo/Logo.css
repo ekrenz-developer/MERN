@@ -1,5 +1,6 @@
 .logo-container {
-    width: 340px;
+    width: 100%;
+    height: 20vh;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -7,17 +8,22 @@
 }
 
 .logo {
-    width: 100%;
+    width: 340px;
     height: 100%;
 }
 
 @media screen and (max-width:400px) {
+    /*
     .logo-container {
         width: 100%;
-        height: 100%;
+        height: 20vh;
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;        
+    }*/
+    .logo {
+        width: 100%;
+        height: 20vh;
     }
 }

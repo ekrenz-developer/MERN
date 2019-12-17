@@ -1,7 +1,7 @@
 import React from 'react';
 import Footer from './components/footer/Footer';
 import Landing from './views/landing/Landing';
-import Login from './views/login/Login';
+import SignIn from './views/signIn/SignIn';
 import SignUp from './views/signUp/SignUp';
 import Cities from './views/cities/Cities';
 import Itineraries from './views/itineraries/Itineraries';
@@ -18,9 +18,7 @@ class App extends React.Component {
             <Route exact path='/'>
               <Landing />
             </Route>
-            <Route exact path='/login'>
-              <Login />
-            </Route>
+            <Route exact path='/signin' component={SignIn} />
             <Route exact path='/signup' component={SignUp} />
             <Route exact path='/cities'>
               <Cities />

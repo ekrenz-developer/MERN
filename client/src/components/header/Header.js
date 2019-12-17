@@ -10,7 +10,7 @@ class Header extends React.Component {
                 <Popover.Content>
                     <div className="submenu-container">
                         <Link to="/signup">Create Account</Link>
-                        <Link to="/login">Log in</Link>
+                        <Link to="/signin">Log in</Link>
                     </div>
                 </Popover.Content>
             </Popover>

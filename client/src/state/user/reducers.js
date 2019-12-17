@@ -1,4 +1,4 @@
-import { USER_REQUEST , USER_SUCCESS , USER_FAILURE } from '../actionTypes';
+import { USER_SUCCESS } from '../actionTypes';
 
 const initialState = {
 	user: {},
@@ -7,22 +7,25 @@ const initialState = {
 
 const user = (state = initialState, action) => {
 	switch (action.type){
+		/*
 		case USER_REQUEST:
 			return {
 				user: action.payload.user
 			}
-
+		*/
 		case USER_SUCCESS:
 			return {
+				...state,
 				user: action.payload.user,
-				token: action.payload
+				token: action.payload.token
 			}
-		
+		/*
 		case USER_FAILURE:
 			return {
+				...state,
 				error: action.payload.error
 			}			
-
+		*/
 		default:
 			return state;
 	}

@@ -3,8 +3,11 @@ import LayoutView from '../../components/layoutView/LayoutView';
 import Header from '../../components/header/Header';
 import FormField from '../../components/formField/FormField';
 import { Form , Button } from 'react-bootstrap';
+import { connect } from 'react-redux';
+import { signIn } from '../../state/user/actions';
+import { userLogin } from '../../services/users/users';
 
-class Login extends React.Component {
+class SignIn extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
@@ -13,6 +16,17 @@ class Login extends React.Component {
 				password: ''
 			},
 		};
+	}
+
+	handleSubmit = e => {
+		e.preventDefault()
+		console.log(this.state)
+		let init = {
+			method: 'POST',
+			body: JSON.stringify(this.state.user),
+			headers: { 'Content-Type': 'application/json'}				
+		}
+		this.props.signIn(userLogin, init);
 	}
 
 	handleChange = (name, type) => (e) => {
@@ -46,7 +60,7 @@ class Login extends React.Component {
 			<React.Fragment> 
 				<Header />         
 				<LayoutView withHeader={true}>
-					<Form>
+					<Form onSubmit={this.handleSubmit}>
 						<FormField
 							controlId={'email'}
 							label={'Email:'}
@@ -69,4 +83,12 @@ class Login extends React.Component {
 	}
 }
 
-export default Login;
+const mapStateToProps = state => ({
+	user: state.user
+});
+
+const mapDispatchToProps = {
+	signIn: (endpoint, init) => signIn(endpoint, init)
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(SignIn);
