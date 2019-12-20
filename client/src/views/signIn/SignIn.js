@@ -13,7 +13,8 @@ class SignIn extends React.Component {
 		this.state = {
 			user: {
 				email: '',
-				password: ''
+				password: '',
+				rememberMe: ''
 			},
 		};
 	}
@@ -74,6 +75,12 @@ class SignIn extends React.Component {
 							type={'password'}
 							placeholder={'password'}
 							onChange={this.handleChange('password', 'password')}
+						/>
+						<FormField
+							fieldType={'checkbox'}
+							label={'Remember me'}
+							onChange={this.handleChange('rememberMe', 'checkbox')}
+							controlId={'rememberMe'}
 						/>
 						<Button type='submit' variant='dark' block size='sm'>Sign In</Button>
 					</Form>

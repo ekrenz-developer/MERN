@@ -24,22 +24,6 @@ class SignUp extends React.Component {
 				conditions: ''				
 			}
 		}
-		/*
-		this.state = {
-			signUp: {
-				user: {
-					userName: '',
-					password: '',
-					email: '',
-					firstName: '',
-					lastName: '',
-					country: '',
-					conditions: ''
-				},
-				status: 'init'
-			}
-		};
-		*/
 	}
 
 	handleSubmit = e => {
@@ -51,40 +35,6 @@ class SignUp extends React.Component {
 			headers: { 'Content-Type': 'application/json'}				
 		}
 		this.props.signUp(userRegister, init);
-		/*
-		e.preventDefault();
-		this.setState(
-			{
-				signUp: {
-					...this.state.signUp,
-					status: 'loading'
-				}
-			}
-		);
-		await this.props.signUp(this.state.signUp);
-		fetch(
-			userRegister, 
-			{
-				method: 'POST',
-				body: JSON.stringify(this.state.signUp.user),
-				headers: { 'Content-Type': 'application/json'}				
-			}
-		).then(response => response.json())
-		.then(data => {
-			this.setState(
-				{
-					signUp: {
-						...this.state.signUp,
-						status: 'succes'
-					}
-				}
-			);
-			console.log(data);
-			this.props.success(this.state.signUp);
-			console.log(this.state);
-		});
-		console.log(this.state);
-		console.log('fin')*/
 	}
 	
 	handleChange = (name, type) => (e) => {
@@ -102,7 +52,6 @@ class SignUp extends React.Component {
 				value = e.target.value
 				break;
 		}
-		/*console.log('name= ' + name + ',value= ' +value)*/
 		this.setState(
 			{
 				user: {
